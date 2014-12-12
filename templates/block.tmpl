@@ -1,0 +1,38 @@
+<div class="page-header">
+	<h3>KRYPTOHASH BLOCK {{.Block.Height}}</h3>
+	<h5>HASH {{.Block.Hash}}</h5>
+	<div class="row">
+		<div class="col-md-6"><a class="btn btn-default" href="/block/{{.Block.PreviousHash}}"><span class="glyphicon glyphicon-chevron-left"></span> Previous</a></div>
+		<div class="col-md-6"><a class="btn btn-default" href="/block/{{.Block.NextHash}}">Next <span class="glyphicon glyphicon-chevron-right"></span></a></div>
+	</div>
+</div>
+
+<div class="row">
+	<label class="col-md-2 control-label">Block Time</label>
+	<p class="col-md-4">{{.Date}}</p>
+	<label class="col-md-2 control-label">TXs</label>
+	<p class="col-md-4">{{.Block.Tx|len}}</p>
+</div>
+<div class="row">
+	<label class="col-md-2 control-label">Size</label>
+	<p class="col-md-4">{{.Block.Size}}</p>
+	<label class="col-md-2 control-label">Total Value</label>
+	<p class="col-md-4"></p>
+</div>
+<div class="row">
+	<label class="col-md-2 control-label">Difficulty</label>
+	<p class="col-md-4">{{.Block.Difficulty}}</p>
+	<label class="col-md-2 control-label">Confirmations</label>
+	<p class="col-md-4">{{.Block.Confirmations}}</p>
+</div>
+<div class="row">
+	<label class="col-md-2 control-label">Version</label>
+	<p class="col-md-10">{{.Block.Version}}</p>
+</div>
+
+<h2>Transactions</h2>
+<ul>
+	{{ range .Block.Tx }}
+		<li><a href="/tx/{{.}}">{{.}}</a></li>
+	{{ end }}
+</ul>

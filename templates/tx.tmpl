@@ -1,0 +1,64 @@
+<div class="page-header">
+	<h3>Transaction Details</h3>
+	<h5>Txid {{.Txid}}</h5>
+</div>
+<div class="row">
+	<label class="col-md-2 control-label">Version</label>
+	<p class="col-md-4">{{.Version}}</p>
+	<label class="col-md-2 control-label">Locktime</label>
+	<p class="col-md-4">{{.Locktime}}</p>
+</div>
+
+<h2>Inputs</h2>
+<table class="table .table-striped">
+	<thead>
+		<tr>
+			<th>Coinbase</th>
+			<th>Txid</th>
+			<th>Vout</th>
+			<th>ScriptSig</th>
+			<th>Sequence</th>
+		</tr>
+	</thead>
+	<tbody>
+	{{ range .Vin }}
+		<tr>
+			<td>{{.Coinbase}}</td>
+			<td>{{.Txid}}</td>
+			<td>{{.Vout}}</td>
+			<td>{{.ScriptSig}}</td>
+			<td>{{.Sequence}}</td>
+		</tr>
+	{{ end }}
+	</tbody>
+</table>
+
+<h2>Outputs</h2>
+<table class="table .table-striped">
+	<thead>
+		<tr>
+			<th>Output #</th>
+			<th>KHC</th>
+			<th>ReqSigs</th>
+			<th>Type</th>
+			<th>Addresses</th>
+		</tr>
+	</thead>
+	<tbody>
+	{{ range .Vout }}
+		<tr>
+			<td>{{.N}}</td>
+			<td>{{.Value}}</td>
+			<td>{{.ScriptPubKey.ReqSigs}}</td>
+			<td>{{.ScriptPubKey.Type}}</td>
+			<td>
+				<ul>
+				{{ range .ScriptPubKey.Addresses }}
+					<li>{{.}}</li>
+				{{ end }}
+				</ul>
+			</td>
+		</tr>
+	{{ end }}
+	</tbody>
+</table>
