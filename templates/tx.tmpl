@@ -13,21 +13,19 @@
 <table class="table .table-striped">
 	<thead>
 		<tr>
-			<th>Coinbase</th>
-			<th>Txid</th>
 			<th>Vout</th>
-			<th>ScriptSig</th>
+			<th>Txid</th>
 			<th>Sequence</th>
+			<th>Coinbase</th>
 		</tr>
 	</thead>
 	<tbody>
 	{{ range .Vin }}
 		<tr>
-			<td>{{.Coinbase}}</td>
-			<td>{{.Txid}}</td>
 			<td>{{.Vout}}</td>
-			<td>{{.ScriptSig}}</td>
+			<td><a href="/tx/{{.Txid}}">{{.Txid}}</a></td>
 			<td>{{.Sequence}}</td>
+			<td>{{.Coinbase}}</td>
 		</tr>
 	{{ end }}
 	</tbody>
