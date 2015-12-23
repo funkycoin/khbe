@@ -4,7 +4,24 @@
 A simple, restful web block explorer supporting the kryptohash cryptocoin.
 
 ## Installation
-Coming soon
+### Build from source using otto
+* Install otto
+* clone repository
+* otto compile
+* otto dev
+* otto dev ssh
+* go get github.com/tools/godep
+* godep restore
+* go build -o khbe
+
+### Deployment
+* On destination server, create khbe folder
+* Copy compiled binary (khbe), public and templates folders
+* Create config.ini file with following entries:
+rpchost=<kryptohash wallet rpc server:port>
+rpcuser=<rpc user>
+rpcpassword=<rpc password>
+* Start server: ./khbe 2>&1 > khbe.log &
 
 ## Acknowledgments
 Coming soon
