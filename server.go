@@ -4,7 +4,7 @@ import (
 	"github.com/conformal/btcjson"
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/render"
-	"khbe/modules/setting"
+	"./modules/setting"
 	"strconv"
 	"time"
 )
