@@ -1,0 +1,6 @@
+application {
+    name = "khbe"
+    type = "go"
+
+    dependency { source = "github.com/hashicorp/otto/examples/postgresql" }
+}

@@ -16,7 +16,7 @@ type blockViewModel struct {
 
 func main() {
 	m := martini.Classic()
-
+    
 	// render html templates from templates directory
 	m.Use(render.Renderer(render.Options{
 		Layout: "layout",
@@ -108,6 +108,23 @@ func main() {
 		if reply.Result != nil {
 			if hash, ok := reply.Result.(string); ok {
 				r.Redirect("/block/"+hash, 302)
+			}
+		}
+	})
+
+	m.Get("/api/miningInfo", func(params martini.Params, r render.Render) {
+		id := 1
+		cmd, err := btcjson.NewGetMiningInfoCmd(id)
+		if err != nil {
+			r.HTML(500, "error", err)
+		}
+		reply, err := btcjson.RpcSend(setting.RpcUser, setting.RpcPassword, setting.RpcHost, cmd)
+		if err != nil {
+			r.HTML(500, "error", err)
+		}
+		if reply.Result != nil {
+			if data, ok := reply.Result.(*btcjson.GetMiningInfoResult); ok {
+				r.JSON(200, data)
 			}
 		}
 	})
