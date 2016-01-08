@@ -3,12 +3,20 @@
 </div>
 <div class="panel panel-primary">
 	<div class="panel-heading">Network Status</div>
-	<div class="panel-body">
-		<label class="col-md-2 control-label">Block Count</label>
-		<p class="col-md-2"><a href="/blockByHeight/{{.Blocks}}">{{.Blocks}}</a></p>
-		<label class="col-md-1 control-label">Difficulty</label>
-		<p class="col-md-3">{{.Difficulty}}</p>
-		<label class="col-md-2 control-label">Network Hashrate</label>
-		<p class="col-md-2" id="hashrate"></p>
+	<div class="panel-body form-horizontal">
+        <div class="form-group">
+            <label class="col-md-1 col-xs-6 control-label">Block Count</label>
+            <div class="col-md-2 col-xs-6">
+                <p class="form-control-static"><a href="/blockByHeight/{{.Blocks}}">{{.Blocks}}</a></p>
+            </div>
+            <label class="col-md-1 col-xs-6 control-label">Difficulty</label>
+            <div class="col-md-2 col-xs-6">
+                <p class="form-control-static">{{.Difficulty}}</p>
+            </div>
+            <label class="col-md-2 col-xs-6 control-label">Network Hashrate</label>
+            <div class="col-md-2 col-xs-6">
+                <p class="form-control-static" id="hashrate"></p>
+            </div>
+        </div>
 	</div>
 </div>
